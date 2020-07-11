@@ -12,8 +12,7 @@ window = sg.Window('Bot', layout)
 
 while True:
     event, values = window.read()
-    print(event, values)
-
+    
     if event == 'Adauga bot':
         layoutInterogare = [ [sg.Text('Introduceti numele botului')],
                                 [sg.InputText()],
@@ -21,7 +20,8 @@ while True:
 
         windowInterogare = sg.Window('Adauga Bot', layoutInterogare)
 
-        while True:
+        numeBot = ''
+        while numeBot == '':
             event, values = windowInterogare.read()
             if event == 'Ok':
                 windowInterogare.close()

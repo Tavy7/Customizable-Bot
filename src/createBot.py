@@ -48,11 +48,11 @@ def adaugaText():
 	return input('Text de adaugat: ')
 
 def main(numeBot=""):
-	print(numeBot)
+	
 	if numeBot == "":
 		numeBot = input('Cum se numeste bot-ul?\n')
 	
-	file = open('boti\\' + numeBot + '.csv', 'a+')
+	file = open('boti\\' + numeBot + '.csv', 'w+')
 
 	while True:
 		afisareMeniu()
