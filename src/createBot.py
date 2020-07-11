@@ -47,8 +47,11 @@ def adaugaKeypress():
 def adaugaText():
 	return input('Text de adaugat: ')
 
-def main():
-	numeBot = input('Cum se numeste bot-ul?\n')
+def main(numeBot=""):
+	print(numeBot)
+	if numeBot == "":
+		numeBot = input('Cum se numeste bot-ul?\n')
+	
 	file = open('boti\\' + numeBot + '.csv', 'a+')
 
 	while True:
@@ -83,4 +86,4 @@ def main():
 	file.close()
 	print("Bot creeat!")
 
-main()
+#main()
