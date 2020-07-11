@@ -75,9 +75,10 @@ def getActions(botName):
 			
 		if action[0] == 's': #text
 			py.write(action[1])
-			
-py.alert('Bot running')
-botName = getBot()
 
-while py.FAILSAFE:
-	getActions(botName)
+def main():	
+	py.alert('Bot running')
+	botName = getBot()
+
+	while py.FAILSAFE:
+		getActions(botName)
