@@ -1,18 +1,37 @@
-import PySimpleGUI  as sg
+import PySimpleGUI as sg
+import createBot
+import runBot
 
-sg.theme('DarkAmber')   # Add a touch of color
-# All the stuff inside your window.
-layout = [  [sg.Text('Some text on Row 1')],
-            [sg.Text('Enter something on Row 2'), sg.InputText()],
-            [sg.Button('Ok'), sg.Button('Cancel')] ]
+sg.theme('DarkAmber')
 
-# Create the Window
-window = sg.Window('Window Title', layout)
-# Event Loop to process "events" and get the "values" of the inputs
+layout = [ [sg.Button('Adauga bot', size=(13, 2))],
+            [sg.Button('Ruleaza un bot', size=(13, 2))],
+            [sg.Exit()] ]
+
+window = sg.Window('Bot', layout)
+
 while True:
     event, values = window.read()
-    if event == sg.WIN_CLOSED or event == 'Cancel': # if user closes window or clicks cancel
-        break
-    print('You entered ', values[0])
+    print(event, values)
 
+    if event == 'Adauga bot':
+        layoutInterogare = [ [sg.Text('Introduceti numele botului')],
+                                [sg.InputText()],
+                                [sg.Button('Ok')]]
+
+        windowInterogare = sg.Window('Adauga Bot', layoutInterogare)
+
+        while True:
+            event, values = windowInterogare.read()
+            if event == 'Ok':
+                windowInterogare.close()
+                createBot.main(values[0])
+                break
+
+    if event == 'Ruleaza un bot':
+        runBot.main()
+
+    if event == sg.WIN_CLOSED or event == 'Exit': # if user closes window or clicks cancel
+        break
+    
 window.close()
